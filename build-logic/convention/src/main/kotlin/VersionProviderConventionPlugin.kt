@@ -1,50 +1,54 @@
+import com.android.build.api.artifact.SingleArtifact
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.gradle.internal.plugins.AppPlugin
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 
 class VersionProviderConventionPlugin : Plugin<Project> {
-    override fun apply(target: Project) {
-        with(target) {
-            plugins.withType(AppPlugin::class.java) {
-                extensions
-                    .getByType(ApplicationAndroidComponentsExtension::class.java)
-                    .onVariants { variant ->
-                        val versionTask =
-                            tasks.register(
-                                variant.name + "VersionProvider",
-                                GitVersionTask::class.java
-                            ) {
-                                val outPutFile = layout.buildDirectory.file("intermediates/gitVersionProvider/output")
-                                gitVersionOutputFile.set(outPutFile)
-                                //This will cause the task to run on every build, ideally we could
-                                //add logic to pass inputs and this will execute an update when
-                                //they have changed
-                                this.outputs.upToDateWhen { false }
-                            }
+    override fun apply(project: Project) {
+        project.plugins.withType(AppPlugin::class.java) {
+            val applicationExtension = project.extensions
+                .getByType(ApplicationAndroidComponentsExtension::class.java)
 
-                        val version = versionTask
-                            .get()
-                            .gitVersionOutputFile
-                            .get()
-                            .asFile
-                            .bufferedReader()
-                            .use { content -> content.readLine().toInt()}
+            val release = applicationExtension.selector().withBuildType("release")
 
-                        variant.outputs.forEach { output ->
-                            output.versionCode.set(version)
+            applicationExtension
+                .onVariants(release) { variant ->
+                    println("Current variant is ${variant.name}")
+
+                    // Register single task for getting versions from git
+                    val gitVersionProvider =
+                        project.tasks.register(variant.name + "GitVersionProvider", GitVersionTask::class.java) {
+                            gitVersionOutputFile.set(
+                                File(project.layout.buildDirectory.get().asFile.absoluteFile, "intermediates/gitVersionProvider/release/output")
+                            )
+                            outputs.upToDateWhen { false } // never use cache
                         }
-                    }
-            }
+
+                    val manifestUpdater =
+                        project.tasks.register(variant.name + "ManifestUpdater", ManifestTransformerTask::class.java) {
+                            gitInfoFile.set(gitVersionProvider.flatMap(GitVersionTask::gitVersionOutputFile))
+                        }
+                    // update manifest with version information that we got from gitVersionProvider
+                    variant.artifacts.use(manifestUpdater)
+                        .wiredWithFiles(
+                            ManifestTransformerTask::mergedManifest,
+                            ManifestTransformerTask::updatedManifest
+                        )
+                        .toTransform(SingleArtifact.MERGED_MANIFEST)
+                }
         }
+
     }
 }
 
-abstract class GitVersionTask: DefaultTask() {
+internal abstract class GitVersionTask: DefaultTask() {
 
     @get:OutputFile
     abstract val gitVersionOutputFile: RegularFileProperty
@@ -71,9 +75,33 @@ abstract class GitVersionTask: DefaultTask() {
             stream.bufferedReader().use { buffer ->
                 buffer.lines().count()
             }
-        }
+        } + 1
 
-        println(version)
+        println("Number of git tags: $version")
         gitVersionOutputFile.get().asFile.writeText(version.toString())
+    }
+}
+
+internal abstract class ManifestTransformerTask: DefaultTask() {
+
+    @get:InputFile
+    abstract val gitInfoFile: RegularFileProperty
+
+    @get:InputFile
+    abstract val mergedManifest: RegularFileProperty
+
+    @get:OutputFile
+    abstract val updatedManifest: RegularFileProperty
+
+    @TaskAction
+    fun taskAction() {
+        val gitVersion = gitInfoFile.get().asFile.readText()
+        var manifest = mergedManifest.asFile.get().readText()
+        manifest = manifest.replaceFirst(
+            regex = "android:versionCode=\"[0-9]+\"".toRegex(),
+            replacement = "android:versionCode=\"$gitVersion\""
+        )
+        println("Writes to " + updatedManifest.get().asFile.absolutePath)
+        updatedManifest.get().asFile.writeText(manifest)
     }
 }

@@ -11,7 +11,7 @@ class ApplicationConventionPlugin: Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
-//                apply("okik.android.versionCode")
+                apply("okik.android.versionCode")
             }
 
             extensions.configure<ApplicationExtension> {
