@@ -1,0 +1,30 @@
+[versions]
+#bynary dependecies versions
+splash = "1.0.0"
+androidDesugar = "2.0.3"
+
+#Plugin versions
+androidGradlePlugin = "8.1.4"
+kotlin = "1.9.10"
+
+#Android-Kotlin versions
+targetSdk = "34"
+minSdk = "24"
+compileSdk = "34"
+
+[libraries]
+androidx_core_splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+android_desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugar"}
+
+#plugin version dependencies used in included project build logic
+kotlin_gradleplugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"} # same as implementation(kotlin("gradle-plugin", version))
+android_gradleplugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+
+[plugins]
+#full plugins contains the version and are used in root projects build script, short versions are used in
+#local/convention plugins or in project build scripts if needed
+android_application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+#plugins defined in this project
+okik-application = { id = "okik.android.application", version = "unspecified" }
