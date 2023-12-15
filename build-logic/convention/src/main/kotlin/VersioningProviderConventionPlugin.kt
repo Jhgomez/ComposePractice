@@ -7,6 +7,7 @@ import org.gradle.api.Project
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
+import org.jetbrains.kotlin.konan.file.use
 import java.io.File
 
 class VersioningProviderConventionPlugin : Plugin<Project> {
@@ -16,7 +17,7 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
                 .getByType(ApplicationAndroidComponentsExtension::class.java)
 
             with(applicationExtension) {
-                val release = selector().withBuildType("release")
+                val release = selector().withBuildType("debug")
 
                 applicationExtension
                     .onVariants(release) { variant ->
@@ -27,8 +28,8 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
                         val mainOutput = variant.outputs.single { it.outputType == OutputType.SINGLE }
 
                         // Register single task for getting versions from git
-                        val gitVersionProvider =
-                            project.tasks.register(variant.name + "GitVersionProvider", GitVersionTask::class.java) {
+                        val gitTagListProvider =
+                            project.tasks.register(variant.name + "GitVersionProvider", GitTagListTask::class.java) {
                                 gitVersionOutputFile.set(
                                     File(project.layout.buildDirectory.get().asFile.absoluteFile, "intermediates/gitVersionProvider/release/output")
                                 )
@@ -36,13 +37,17 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
                             }
 
                         mainOutput.versionCode.set(
-                            gitVersionProvider
+                            gitTagListProvider
                                 .flatMap{ task ->
                                     task.gitVersionOutputFile.map { versionOutput ->
-                                        versionOutput.asFile.readText().toInt()
+                                        versionOutput.asFile.bufferedReader().use { buffer ->
+                                            buffer.lines().count().toInt()
+                                        }
                                     }
                                 }
                         )
+
+
                     }
             }
         }
@@ -50,7 +55,7 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
     }
 }
 
-internal abstract class GitVersionTask: DefaultTask() {
+internal abstract class GitTagListTask: DefaultTask() {
 
     @get:OutputFile
     abstract val gitVersionOutputFile: RegularFileProperty
@@ -60,7 +65,7 @@ internal abstract class GitVersionTask: DefaultTask() {
         val process = ProcessBuilder(
             "/bin/zsh",  // shell address in file system
             "-c",
-            "git tag"
+            "git show-ref --tags"
         ).start()
 
         val error = process.errorStream.use { stream ->
@@ -73,13 +78,17 @@ internal abstract class GitVersionTask: DefaultTask() {
             System.err.println("Git error : $error")
         }
 
-        val version = process.inputStream.use { stream ->
+        val tags = process.inputStream.use { stream ->
             stream.bufferedReader().use { buffer ->
-                buffer.lines().count()
+                buffer.lines().toList()
             }
         }
 
-        println("Number of git tags: $version")
-        gitVersionOutputFile.get().asFile.writeText(version.toString())
+        gitVersionOutputFile.get().asFile.bufferedWriter().use { writer ->
+            tags.forEach {
+                writer.write(it)
+                writer.appendLine()
+            }
+        }
     }
 }
