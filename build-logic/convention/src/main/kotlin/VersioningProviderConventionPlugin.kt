@@ -18,7 +18,7 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
                 .getByType(ApplicationAndroidComponentsExtension::class.java)
 
             with(applicationExtension) {
-                val release = selector().withBuildType("debug")
+                val release = selector().withBuildType("release")
 
                 applicationExtension
                     .onVariants(release) { variant ->
