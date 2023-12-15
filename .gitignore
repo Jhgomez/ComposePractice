@@ -244,4 +244,7 @@ fabric.properties
 .idea/codeStyles/Project.xml
 .idea/deploymentTargetDropDown.xml
 
+# Kotlin data stored by Kotlin Gradle plugin
+./kotlin
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,gradle,windows,android,androidstudio,java,kotlin
