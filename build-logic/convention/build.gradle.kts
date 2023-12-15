@@ -25,7 +25,7 @@ gradlePlugin {
         }
         register("gitTagsVersionCode") {
             id = "okik.android.versionCode"
-            implementationClass = "VersionProviderConventionPlugin"
+            implementationClass = "VersioningProviderConventionPlugin"
         }
     }
 }

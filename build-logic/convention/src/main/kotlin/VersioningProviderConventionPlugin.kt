@@ -9,7 +9,7 @@ import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
-class VersionProviderConventionPlugin : Plugin<Project> {
+class VersioningProviderConventionPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.withType(AppPlugin::class.java) {
             val applicationExtension = project.extensions
