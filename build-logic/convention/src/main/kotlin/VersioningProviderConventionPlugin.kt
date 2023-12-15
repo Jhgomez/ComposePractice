@@ -41,30 +41,35 @@ class VersioningProviderConventionPlugin : Plugin<Project> {
                             project.tasks.register(variant.name + "GitVersionCodeProvider", GitVersionCodeProvider::class.java) {
                                 gitTagListInputFile.set(gitTagListProvider.flatMap(GitTagListTask::gitTagListOutputFile))
                                 gitVersionCodeOutputFile.set(
-                                    File(project.layout.buildDirectory.get().asFile.absoluteFile, "intermediates/versioning/release/versionCodeOutput")
+                                    project.layout.buildDirectory.file("intermediates/versioning/release/versionCodeOutput")
                                 )
                             }
 
                         mainOutput.versionCode.set(
                             gitVersionCodeProvider
                                 .flatMap { task ->
-                                    task.gitVersionCodeOutputFile.map { versionOutput ->
-                                        versionOutput.asFile.readText().toInt()
+                                    task.gitVersionCodeOutputFile.map { versionCodeOutput ->
+                                        versionCodeOutput.asFile.readText().toInt()
                                     }
                                 }
                         )
 
-//                        val version = gitVersionCodeProvider.get().gitVersionCodeOutputFile.get().asFile.readText().toInt()
-//                        variant.outputs.forEach {
-//                            it.versionCode.set(
-//                                gitVersionCodeProvider
-//                                    .flatMap { task ->
-//                                        task.gitVersionCodeOutputFile.map { versionOutput ->
-//                                            versionOutput.asFile.readText().toInt()
-//                                        }
-//                                    }
-//                            )
-//                        }
+                        val gitVersionNameProvider =
+                            project.tasks.register(variant.name + "GitVersionNameProvider", GitVersionNameProvider::class.java) {
+                                gitTagListInputFile.set(gitTagListProvider.flatMap(GitTagListTask::gitTagListOutputFile))
+                                gitVersionNameOutputFile.set(
+                                    project.layout.buildDirectory.file("intermediates/versioning/release/versionNameOutput")
+                                )
+                            }
+
+                        mainOutput.versionName.set(
+                            gitVersionNameProvider
+                                .flatMap { task ->
+                                    task.gitVersionNameOutputFile.map { versionNameOutput ->
+                                        versionNameOutput.asFile.readText()
+                                    }
+                                }
+                        )
                     }
             }
         }
@@ -106,46 +111,47 @@ internal abstract class GitTagListTask: DefaultTask() {
     }
 }
 
-//internal abstract class GitVersionNameProvider: DefaultTask() {
-//
-//    @get:InputFile
-//    abstract val gitTagListInputFile: RegularFileProperty
-//
-//    @get:OutputFile
-//    abstract val gitVersionNameOutputFile: RegularFileProperty
-//
-//    @TaskAction
-//    fun taskAction() {
-//        val process = ProcessBuilder(
-//            "/bin/zsh",  // shell address in file system
-//            "-c",
-//            "git rev-parse HEAD" // will give the HEAD's commit hash so we can compare it against hashes in tags
-//        ).start()
-//
-//        val error = process.errorStream.bufferedReader().use { buffer ->
-//            buffer.readLine()
-//        }
-//
-//        if (error?.isNotEmpty() != null) {
-//            System.err.println("Git error : $error")
-//        }
-//
-//        val headCommitHash = process.inputStream.bufferedReader().use { buffer ->
-//            buffer.readLine()
-//        }
-//
-//        val versionName = gitTagListInputFile.get().asFile.bufferedReader().use { buffer ->
-//            buffer.lines().filter { tagAndCommit ->
-//                tagAndCommit.contains(headCommitHash)
-//            }.toList().firstOrNull()?.apply {
-//                val versionStartIndex = lastIndexOf("/") + 1
-//                substring(versionStartIndex)
-//            }
-//        } ?: "0.0.1"
-//
-//        gitVersionNameOutputFile.get().asFile.writeText(versionName)
-//    }
-//}
+internal abstract class GitVersionNameProvider: DefaultTask() {
+
+    @get:InputFile
+    abstract val gitTagListInputFile: RegularFileProperty
+
+    @get:OutputFile
+    abstract val gitVersionNameOutputFile: RegularFileProperty
+
+    @TaskAction
+    fun taskAction() {
+        val process = ProcessBuilder(
+            "/bin/zsh",  // shell address in file system
+            "-c",
+            "git rev-parse HEAD" // will give the HEAD's commit hash so we can compare it against hashes in tags
+        ).start()
+
+        val error = process.errorStream.bufferedReader().use { buffer ->
+            buffer.readLine()
+        }
+
+        if (error?.isNotEmpty() != null) {
+            System.err.println("Git error : $error")
+        }
+
+        val headCommitHash = process.inputStream.bufferedReader().use { buffer ->
+            buffer.readLine()
+        }
+
+        val versionName = gitTagListInputFile.get().asFile.bufferedReader().use { buffer ->
+            buffer.lines().filter { tagAndCommit ->
+                tagAndCommit.contains(headCommitHash)
+            }.toList().firstOrNull()?.run {
+                val versionStartIndex = lastIndexOf("/") + 1
+                val name = substring(versionStartIndex)
+                name
+            }
+        } ?: "0.0.1"
+
+        gitVersionNameOutputFile.get().asFile.writeText(versionName)
+    }
+}
 
 internal abstract class GitVersionCodeProvider: DefaultTask() {
 
