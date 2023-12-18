@@ -5,7 +5,8 @@ androidDesugar = "2.0.3"
 
 #Plugin versions
 androidGradlePlugin = "8.1.4"
-kotlin = "1.9.20"
+compose-plugin = "1.6.0-alpha01"
+kotlin = "1.9.21"
 
 #Android-Kotlin versions
 targetSdk = "34"
