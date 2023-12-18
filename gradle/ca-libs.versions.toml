@@ -25,6 +25,8 @@ android_gradleplugin = { group = "com.android.tools.build", name = "gradle", ver
 #local/convention plugins or in project build scripts if needed
 android_application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
 #plugins defined in this project
 okik-application = { id = "okik.android.application", version = "unspecified" }
