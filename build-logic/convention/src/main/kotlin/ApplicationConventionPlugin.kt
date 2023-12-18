@@ -9,8 +9,8 @@ class ApplicationConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
+                apply("org.jetbrains.kotlin.multiplatform")
                 apply("com.android.application")
-                apply("org.jetbrains.kotlin.android")
                 apply("okik.android.versioning")
             }
 
