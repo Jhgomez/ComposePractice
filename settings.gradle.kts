@@ -24,4 +24,5 @@ rootProject.name = "CommunityAdmin"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":androidApp")
+include(":shared")
  
