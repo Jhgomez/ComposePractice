@@ -13,6 +13,7 @@ class ApplicationConventionPlugin: Plugin<Project> {
                 apply("org.jetbrains.kotlin.multiplatform")
                 apply("com.android.application")
                 apply("okik.android.versioning")
+                apply("org.jetbrains.compose")
             }
 
             extensions.configure<ApplicationExtension> {
