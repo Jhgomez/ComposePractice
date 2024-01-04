@@ -5,7 +5,7 @@ androidDesugar = "2.0.3"
 
 #Plugin versions
 androidGradlePlugin = "8.1.4"
-compose-plugin = "1.6.0-alpha01"
+composePlugin = "1.6.0-alpha01"
 kotlin = "1.9.21"
 
 #Android-Kotlin versions
@@ -20,13 +20,14 @@ android_desugar = { group = "com.android.tools", name = "desugar_jdk_libs", vers
 #plugin version dependencies used in included project build logic
 kotlin_gradleplugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"} # same as implementation(kotlin("gradle-plugin", version))
 android_gradleplugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+compose_multiplatform_gradleplugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "composePlugin" }
 
 [plugins]
 #full plugins contains the version and are used in root projects build script, short versions are used in
 #local/convention plugins or in project build scripts if needed
 android_application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+# kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" } this won't be needed at the moment
+compose_multiplatform = { id = "org.jetbrains.compose", version.ref = "composePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 
 #plugins defined in this project
