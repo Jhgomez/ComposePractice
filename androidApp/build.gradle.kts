@@ -2,14 +2,28 @@ plugins {
     alias(libs.plugins.okik.application)
 }
 
+kotlin {
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+
+    }
+}
+
 android {
     namespace = "okik.tech.community.admin"
-    compileSdk = 34
 
     defaultConfig {
         applicationId = "okik.tech.community.admin"
-        minSdk = 24
-        targetSdk = 34
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
