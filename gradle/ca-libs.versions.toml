@@ -2,6 +2,8 @@
 #bynary dependecies versions
 splash = "1.0.0"
 androidDesugar = "2.0.3"
+composeBom = "2023.10.01"
+activityCompose = "1.8.2"
 
 #Plugin versions
 androidGradlePlugin = "8.1.4"
@@ -16,6 +18,10 @@ compileSdk = "34"
 [libraries]
 androidx_core_splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 android_desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugar"}
+compose_bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose_material3 = { group = "androidx.compose.material3", name = "material3" }
+compose_foundation = { group = "androidx.compose.foundation", name = "foundation" }
+activity_compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 
 #plugin version dependencies used in included project build logic
 kotlin_gradleplugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"} # same as implementation(kotlin("gradle-plugin", version))
@@ -32,3 +38,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 
 #plugins defined in this project
 okik-application = { id = "okik.android.application", version = "unspecified" }
+okik-multiplatform-shared = { id = "okik.multiplatform.shared", version = "unspecified" }
