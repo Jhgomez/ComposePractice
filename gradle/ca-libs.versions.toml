@@ -3,8 +3,7 @@
 splash = "1.0.0"
 androidDesugar = "2.0.3"
 activityCompose = "1.8.2"
-composeMaterial3 = "1.1.2"
-composeFoundation = "1.5.4"
+composeCompiler = "1.5.4"
 
 #Plugin versions
 androidGradlePlugin = "8.1.4"
@@ -19,8 +18,9 @@ compileSdk = "34"
 [libraries]
 androidx_core_splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 android_desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugar"}
-compose_material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "composeMaterial3" }
-compose_foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeFoundation" }
+compose_compiler = { group = "org.jetbrains.compose.compiler", name = "compiler", version.ref = "composeCompiler" }
+compose_material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "composePlugin" }
+compose_foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "composePlugin" }
 activity_compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 
 #plugin version dependencies used in included project build logic
