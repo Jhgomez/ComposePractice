@@ -8,7 +8,7 @@ composeCompiler = "1.5.4"
 #Plugin versions
 androidGradlePlugin = "8.1.4"
 composePlugin = "1.6.0-alpha01"
-kotlin = "1.9.21"
+kotlin = "1.9.22"
 
 #Android-Kotlin versions
 targetSdk = "34"
