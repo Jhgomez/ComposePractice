@@ -15,6 +15,7 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                 apply("org.jetbrains.kotlin.multiplatform")
                 apply("com.android.library")
                 apply("org.jetbrains.compose")
+                apply("org.jetbrains.kotlin.native.cocoapods")
             }
 
             plugins.withType(ComposePlugin::class.java) {
