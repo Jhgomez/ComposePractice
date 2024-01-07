@@ -8,7 +8,7 @@ composeCompiler = "1.5.4"
 #Plugin versions
 androidGradlePlugin = "8.1.4"
 composePlugin = "1.6.0-alpha01"
-kotlin = "1.9.22"
+kotlin = "1.9.21"
 
 #Android-Kotlin versions
 targetSdk = "34"
@@ -35,6 +35,7 @@ android_application = { id = "com.android.application", version.ref = "androidGr
 # kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" } this won't be needed at the moment
 compose_multiplatform = { id = "org.jetbrains.compose", version.ref = "composePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin_native_cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 
 #plugins defined in this project
 okik-application = { id = "okik.android.application", version = "unspecified" }
