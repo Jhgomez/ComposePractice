@@ -27,6 +27,10 @@ gradlePlugin {
             id = "okik.android.versioning"
             implementationClass = "VersioningProviderConventionPlugin"
         }
+        register("multiplatformShared") {
+            id = "okik.multiplatform.shared"
+            implementationClass = "MultiplatformCommonConventionPlugin"
+        }
     }
 }
 
