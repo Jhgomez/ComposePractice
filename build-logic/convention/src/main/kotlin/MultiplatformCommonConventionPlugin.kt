@@ -1,16 +1,11 @@
-
 import com.android.build.gradle.LibraryExtension
 import okik.tech.community.admin.configureKotlinAndroid
 import okik.tech.community.admin.libs
-import org.gradle.api.NamedDomainObjectContainer
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getting
 import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 class MultiplatformCommonConventionPlugin: Plugin<Project> {
 
@@ -53,9 +48,15 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                             api(libs.findLibrary("activity.compose").get())
                         }
                     }
+
+                    sourceSets.iosMain {
+                        dependsOn(sourceSets.commonMain.get())
+                        sourceSets.getByName("iosX64Main").dependsOn(this)
+                        sourceSets.getByName("iosArm64Main").dependsOn(this)
+                        sourceSets.getByName("iosSimulatorArm64Main").dependsOn(this)
+                    }
                 }
             }
-
 
             extensions.configure<LibraryExtension> {
                 compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
