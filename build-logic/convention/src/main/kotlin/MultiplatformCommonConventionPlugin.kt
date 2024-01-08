@@ -13,14 +13,15 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.multiplatform")
+                apply("org.jetbrains.kotlin.native.cocoapods")
                 apply("com.android.library")
                 apply("org.jetbrains.compose")
-                apply("org.jetbrains.kotlin.native.cocoapods")
             }
 
             plugins.withType(ComposePlugin::class.java) {
                 extensions.configure<LibraryExtension> {
                     configureKotlinAndroid(this)
+                    compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
                 }
 
                 extensions.configure<KotlinMultiplatformExtension> {
@@ -57,10 +58,6 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                         sourceSets.getByName("iosSimulatorArm64Main").dependsOn(this)
                     }
                 }
-            }
-
-            extensions.configure<LibraryExtension> {
-                compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
             }
         }
     }
