@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
+
 plugins {
     alias(libs.plugins.okik.multiplatform.shared)
 }
@@ -13,8 +15,9 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = "CommunityAdmin"
             isStatic = true
+            embedBitcode(BitcodeEmbeddingMode.BITCODE)
         }
     }
 }
