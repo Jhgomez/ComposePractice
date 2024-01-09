@@ -9,7 +9,7 @@ import SwiftUI
 import shared
 
 @main
-struct iOSApp: App {
+struct iosApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -25,7 +25,7 @@ struct ContentView: View {
 
 struct ComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        MainKt.MainViewController()
+        Main_iosKt.MainViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
