@@ -248,3 +248,8 @@ fabric.properties
 ./kotlin
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,gradle,windows,android,androidstudio,java,kotlin
+
+# Kotlin Multiprlatform
+
+#ios
+Pods/
