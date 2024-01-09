@@ -9,7 +9,7 @@ import SwiftUI
 import shared
 
 @main
-struct CommunityAdminApp: App {
+struct iOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
