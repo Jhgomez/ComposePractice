@@ -253,3 +253,10 @@ fabric.properties
 
 #ios
 Pods/
+xcuserdata/
+/androidApp/key
+*yarn.lock
+Pods/Pods.xcodeproj
+Pods/*
+Pods/Target Support Files
+Pods/Manifest.lock
