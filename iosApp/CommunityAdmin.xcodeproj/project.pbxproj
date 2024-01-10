@@ -52,7 +52,6 @@
 		A886DE352B4D999F00D098F8 /* CommunityAdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunityAdminUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A886DE392B4D999F00D098F8 /* CommunityAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAdminUITests.swift; sourceTree = "<group>"; };
 		A886DE3B2B4D999F00D098F8 /* CommunityAdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C82BB2245555834E18366875 /* Pods_CommunityAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunityAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED31B8AEC0EEFDF72F993A0 /* Pods_CommunityAdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunityAdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DA2B0024589F35432624C2 /* Pods_CommunityAdmin_CommunityAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommunityAdmin_CommunityAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B07398DF27B45C57809159 /* Pods-CommunityAdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunityAdminTests.release.xcconfig"; path = "Target Support Files/Pods-CommunityAdminTests/Pods-CommunityAdminTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 		3B7D1C120AE7207E1C7FA02A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C82BB2245555834E18366875 /* Pods_CommunityAdmin.framework */,
 				E5DA2B0024589F35432624C2 /* Pods_CommunityAdmin_CommunityAdminUITests.framework */,
 				DED31B8AEC0EEFDF72F993A0 /* Pods_CommunityAdminTests.framework */,
 			);
