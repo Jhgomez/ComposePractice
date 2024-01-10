@@ -10,13 +10,12 @@
 		8806757C78761DC2FB46BA93 /* Pods_CommunityAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED31B8AEC0EEFDF72F993A0 /* Pods_CommunityAdminTests.framework */; };
 		94FA84A7CC5E032651570F26 /* Pods_CommunityAdmin_CommunityAdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DA2B0024589F35432624C2 /* Pods_CommunityAdmin_CommunityAdminUITests.framework */; };
 		A886DE1F2B4D999D00D098F8 /* CommunityAdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886DE1E2B4D999D00D098F8 /* CommunityAdminApp.swift */; };
-		A886DE212B4D999D00D098F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886DE202B4D999D00D098F8 /* ContentView.swift */; };
 		A886DE232B4D999F00D098F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A886DE222B4D999F00D098F8 /* Assets.xcassets */; };
 		A886DE262B4D999F00D098F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A886DE252B4D999F00D098F8 /* Preview Assets.xcassets */; };
 		A886DE302B4D999F00D098F8 /* CommunityAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886DE2F2B4D999F00D098F8 /* CommunityAdminTests.swift */; };
 		A886DE3A2B4D999F00D098F8 /* CommunityAdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886DE392B4D999F00D098F8 /* CommunityAdminUITests.swift */; };
 		A886DE3C2B4D999F00D098F8 /* CommunityAdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886DE3B2B4D999F00D098F8 /* CommunityAdminUITestsLaunchTests.swift */; };
-		C5D9071CB9F7D2446440E2F8 /* Pods_CommunityAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82BB2245555834E18366875 /* Pods_CommunityAdmin.framework */; };
+		C5D9071CB9F7D2446440E2F8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		900263FBC6FF4C058232394A /* Pods-CommunityAdmin-CommunityAdminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommunityAdmin-CommunityAdminUITests.debug.xcconfig"; path = "Target Support Files/Pods-CommunityAdmin-CommunityAdminUITests/Pods-CommunityAdmin-CommunityAdminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A886DE1B2B4D999D00D098F8 /* CommunityAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunityAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A886DE1E2B4D999D00D098F8 /* CommunityAdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAdminApp.swift; sourceTree = "<group>"; };
-		A886DE202B4D999D00D098F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A886DE222B4D999F00D098F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A886DE252B4D999F00D098F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A886DE2B2B4D999F00D098F8 /* CommunityAdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunityAdminTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5D9071CB9F7D2446440E2F8 /* Pods_CommunityAdmin.framework in Frameworks */,
+				C5D9071CB9F7D2446440E2F8 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				A886DE1E2B4D999D00D098F8 /* CommunityAdminApp.swift */,
-				A886DE202B4D999D00D098F8 /* ContentView.swift */,
 				A886DE222B4D999F00D098F8 /* Assets.xcassets */,
 				A886DE242B4D999F00D098F8 /* Preview Content */,
 			);
@@ -403,7 +400,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A886DE212B4D999D00D098F8 /* ContentView.swift in Sources */,
 				A886DE1F2B4D999D00D098F8 /* CommunityAdminApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
