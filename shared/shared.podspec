@@ -6,15 +6,15 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/CommunityAdmin.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/shared.framework'
     spec.libraries                = 'c++'
                 
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/CommunityAdmin.framework') || Dir.empty?('build/cocoapods/framework/CommunityAdmin.framework')
+    if !Dir.exist?('build/cocoapods/framework/shared.framework') || Dir.empty?('build/cocoapods/framework/shared.framework')
         raise "
 
-        Kotlin framework 'CommunityAdmin' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'shared' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
             ./gradlew :shared:generateDummyFramework
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
-        'PRODUCT_MODULE_NAME' => 'CommunityAdmin',
+        'PRODUCT_MODULE_NAME' => 'shared',
     }
                 
     spec.script_phases = [
@@ -46,5 +46,5 @@ Pod::Spec.new do |spec|
             SCRIPT
         }
     ]
-    spec.resources = ['build/compose/ios/CommunityAdmin/compose-resources']
+    spec.resources = ['build/compose/ios/shared/compose-resources']
 end

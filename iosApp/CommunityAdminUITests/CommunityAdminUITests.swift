@@ -2,7 +2,7 @@
 //  CommunityAdminUITests.swift
 //  CommunityAdminUITests
 //
-//  Created by Juan Enrique Gomez Flores on 9/01/24.
+//  Created by Juan Enrique Gomez Flores on 10/01/24.
 //
 
 import XCTest
