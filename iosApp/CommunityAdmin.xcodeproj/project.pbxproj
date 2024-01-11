@@ -236,6 +236,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = okik.tech;
 				TargetAttributes = {
 					A831C8932B4F59B0008EDE56 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -615,7 +616,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = okik.tech.community.admin.CommunityAdmin;
+				PRODUCT_BUNDLE_IDENTIFIER = okik.tech.CommunityAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -644,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = okik.tech.community.admin.CommunityAdmin;
+				PRODUCT_BUNDLE_IDENTIFIER = okik.tech.CommunityAdmin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
