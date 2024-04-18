@@ -6,7 +6,7 @@ activityCompose = "1.8.2"
 composeCompiler = "1.5.4"
 
 #Plugin versions
-androidGradlePlugin = "8.1.4"
+androidGradlePlugin = "8.2.2"
 composePlugin = "1.6.2"
 kotlin = "1.9.22"
 
