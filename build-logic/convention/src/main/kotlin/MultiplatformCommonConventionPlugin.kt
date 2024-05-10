@@ -24,6 +24,8 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                 extensions.configure<LibraryExtension> {
                     configureKotlinAndroid(this)
                     compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
+
+                    testOptions.unitTests.isIncludeAndroidResources = true
                 }
 
                 extensions.configure<KotlinMultiplatformExtension> {
