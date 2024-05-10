@@ -23,11 +23,11 @@ compose_compiler = { group = "org.jetbrains.compose.compiler", name = "compiler"
 compose_material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "composePlugin" }
 compose_foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "composePlugin" }
 activity_compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-icerock_moko_resources = { group = "dev.icerock.mokko", name = "resources", version.ref = "resourceGenerator" }
-icerock_moko_resources_compose = { group = "dev.icerock.mokko", name = "resources-compose", version.ref = "resourceGenerator" }
+icerock_moko_resources = { group = "dev.icerock.moko", name = "resources", version.ref = "resourceGenerator" }
+icerock_moko_resources_compose = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "resourceGenerator" }
 
 #testing
-icerock_moko_resources_test = { group = "dev.icerock.mokko", name = "resources-test", version.ref = "resourceGenerator" }
+icerock_moko_resources_test = { group = "dev.icerock.moko", name = "resources-test", version.ref = "resourceGenerator" }
 
 #plugin version dependencies used in included project build logic
 kotlin_gradleplugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"} # same as implementation(kotlin("gradle-plugin", version))
