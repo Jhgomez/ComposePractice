@@ -4,6 +4,7 @@ import okik.tech.community.admin.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
@@ -43,6 +44,7 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                         dependencies {
                             implementation(libs.findLibrary("compose.foundation").get())
                             implementation(libs.findLibrary("compose.material3").get())
+                            api(libs.findLibrary("icerock.moko.resources.compose").get())
                         }
                     }
 
@@ -57,6 +59,10 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                         sourceSets.getByName("iosX64Main").dependsOn(this)
                         sourceSets.getByName("iosArm64Main").dependsOn(this)
                         sourceSets.getByName("iosSimulatorArm64Main").dependsOn(this)
+                    }
+
+                    dependencies {
+                        add("commonTestImplementation", libs.findLibrary("icerock.moko.resources.test").get())
                     }
                 }
             }
