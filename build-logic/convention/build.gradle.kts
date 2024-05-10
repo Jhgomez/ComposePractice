@@ -38,4 +38,5 @@ dependencies {
     compileOnly(libs.kotlin.gradleplugin)
     compileOnly(libs.android.gradleplugin)
     compileOnly(libs.compose.multiplatform.gradleplugin)
+    compileOnly(libs.multiplatform.icerock.resources.generator)
 }
