@@ -175,7 +175,6 @@
 				A831C8902B4F59B0008EDE56 /* Sources */,
 				A831C8912B4F59B0008EDE56 /* Frameworks */,
 				A831C8922B4F59B0008EDE56 /* Resources */,
-				30B78A4AC082DEC0C188C751 /* [CP] Copy Pods Resources */,
 				CFFB2671903C14A5D1C161BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -214,7 +213,6 @@
 				A831C8AA2B4F59B2008EDE56 /* Sources */,
 				A831C8AB2B4F59B2008EDE56 /* Frameworks */,
 				A831C8AC2B4F59B2008EDE56 /* Resources */,
-				F184802090B10038B70BD135 /* [CP] Copy Pods Resources */,
 				28AF06B5E251F9685B02FD4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -337,23 +335,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin-CommunityAdminUITests/Pods-CommunityAdmin-CommunityAdminUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		30B78A4AC082DEC0C188C751 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin/Pods-CommunityAdmin-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin/Pods-CommunityAdmin-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin/Pods-CommunityAdmin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8ABB8A628C24E5C84900F9B8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,23 +394,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin/Pods-CommunityAdmin-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F184802090B10038B70BD135 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin-CommunityAdminUITests/Pods-CommunityAdmin-CommunityAdminUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin-CommunityAdminUITests/Pods-CommunityAdmin-CommunityAdminUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CommunityAdmin-CommunityAdminUITests/Pods-CommunityAdmin-CommunityAdminUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

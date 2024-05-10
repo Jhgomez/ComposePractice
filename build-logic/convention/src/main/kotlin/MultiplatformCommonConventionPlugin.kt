@@ -16,6 +16,7 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                 apply("org.jetbrains.kotlin.native.cocoapods")
                 apply("com.android.library")
                 apply("org.jetbrains.compose")
+                apply("dev.icerock.mobile.multiplatform-resources")
             }
 
             plugins.withType(ComposePlugin::class.java) {
