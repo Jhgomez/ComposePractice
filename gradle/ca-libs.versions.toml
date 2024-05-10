@@ -9,6 +9,7 @@ composeCompiler = "1.5.4"
 androidGradlePlugin = "8.2.2"
 composePlugin = "1.6.2"
 kotlin = "1.9.22"
+resourceGenerator = "0.23.0"
 
 #Android-Kotlin versions
 targetSdk = "34"
@@ -27,6 +28,7 @@ activity_compose = { group = "androidx.activity", name = "activity-compose", ver
 kotlin_gradleplugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"} # same as implementation(kotlin("gradle-plugin", version))
 android_gradleplugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 compose_multiplatform_gradleplugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "composePlugin" }
+multiplatform_icerock_resources_generator = { group = "dev.icerock.moko", name = "resources-generator", version.ref = "resourceGenerator" }
 
 [plugins]
 #full plugins contains the version and are used in root projects build script, short versions are used in
@@ -36,6 +38,7 @@ android_application = { id = "com.android.application", version.ref = "androidGr
 compose_multiplatform = { id = "org.jetbrains.compose", version.ref = "composePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin_native_cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+icerock_resource_generator = { id ="dev.icerock.mobile.multiplatform-resources", version.ref = "resourceGenerator" }
 
 #plugins defined in this project
 okik-application = { id = "okik.android.application", version = "unspecified" }
