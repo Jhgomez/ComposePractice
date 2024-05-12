@@ -59,11 +59,9 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
 
                     // Check if opt-in still needed in following Kotlin releases
                     // https://youtrack.jetbrains.com/issue/KT-61573
-                    targets.configureEach {
-                        compilations.configureEach {
-                            compilerOptions.configure {
-                                freeCompilerArgs.add("-Xexpect-actual-classes")
-                            }
+                    androidTarget().compilations.configureEach {
+                        compilerOptions.configure {
+                            freeCompilerArgs.add("-Xexpect-actual-classes")
                         }
                     }
 
