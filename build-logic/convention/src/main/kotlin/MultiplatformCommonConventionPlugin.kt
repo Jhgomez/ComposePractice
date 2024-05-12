@@ -23,6 +23,7 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
             plugins.withType(ComposePlugin::class.java) {
                 extensions.configure<LibraryExtension> {
                     configureKotlinAndroid(this)
+
                     compileSdk = libs.findVersion("compileSdk").get().toString().toInt()
 
                     testOptions.unitTests.isIncludeAndroidResources = true
@@ -30,17 +31,9 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
 
                 extensions.configure<KotlinMultiplatformExtension> {
                     androidTarget() //this configuration could be removed, try removing it after all project is compiled
-
-                    listOf(
-                        iosX64(),
-                        iosArm64(),
-                        iosSimulatorArm64()
-                    ).forEach { iosTarget ->
-                        iosTarget.binaries.framework {
-                            baseName = "shared"
-                            isStatic = true
-                        }
-                    }
+                    iosX64()
+                    iosArm64()
+                    iosSimulatorArm64()
 
                     sourceSets.commonMain {
                         dependencies {
@@ -51,6 +44,7 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                     }
 
                     sourceSets.androidMain {
+                        dependsOn(sourceSets.getByName("commonMain"))
                         dependencies {
                             api(libs.findLibrary("activity.compose").get())
                         }
