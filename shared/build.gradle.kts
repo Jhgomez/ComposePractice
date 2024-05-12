@@ -1,14 +1,14 @@
 import dev.icerock.gradle.MRVisibility
-import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
 
 plugins {
     alias(libs.plugins.okik.multiplatform.shared)
 }
 
-private val PACKAGE_NAME = "okik.tech.community.admin.shared"
+private val packageName = "okik.tech.community.admin.shared"
+private val resourcesPackageName = "okik.tech.community.admin.shared.resources"
 
 android {
-    namespace = PACKAGE_NAME
+    namespace = packageName
 }
 
 kotlin {
@@ -26,7 +26,7 @@ kotlin {
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = PACKAGE_NAME
-    multiplatformResourcesClassName = "SharedMR"
+    multiplatformResourcesPackage = resourcesPackageName
+    multiplatformResourcesClassName = "SharedRes"
     multiplatformResourcesVisibility = MRVisibility.Public
 }
