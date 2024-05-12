@@ -57,6 +57,16 @@ class MultiplatformCommonConventionPlugin: Plugin<Project> {
                         sourceSets.getByName("iosSimulatorArm64Main").dependsOn(this)
                     }
 
+                    // Check if opt-in still needed in following Kotlin releases
+                    // https://youtrack.jetbrains.com/issue/KT-61573
+                    targets.configureEach {
+                        compilations.configureEach {
+                            compilerOptions.configure {
+                                freeCompilerArgs.add("-Xexpect-actual-classes")
+                            }
+                        }
+                    }
+
                     dependencies {
                         add("commonTestImplementation", libs.findLibrary("icerock.moko.resources.test").get())
                     }
