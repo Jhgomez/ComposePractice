@@ -8,12 +8,12 @@ We are using "Moko Resources" library to generate resources that are available t
 
 png and jpg image names should end with one of:
 
--@0.75x - android ldpi;
--@1x - android mdpi, ios 1x; 
--@1.5x - android hdpi;
--@2x - android xhdpi, ios 2x;
--@3x - android xxhdpi, ios 3x;
--@4x - android xxxhdpi.
+- @0.75x - android ldpi;
+- @1x - android mdpi, ios 1x; 
+- @1.5x - android hdpi;
+- @2x - android xhdpi, ios 2x;
+- @3x - android xxhdpi, ios 3x;
+- @4x - android xxxhdpi.
 
 If we add the following files to commonMain/resources/MR/images:
 
