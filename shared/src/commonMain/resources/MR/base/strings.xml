@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="test">my test</string>
+    <string name="full_name">Juan Gomez</string>
+    <string name="title">Tech Lead</string>
+    <string name="phone">(+502)-5697-4287</string>
+    <string name="social_profile">@juan_os_</string>
+    <string name="email">juan.e.g.f@outlook.com</string>
 </resources>
