@@ -39,6 +39,7 @@ private fun Project.configureKotlin() {
             val warningAsErrors: String? by project
             allWarningsAsErrors = warningAsErrors.toBoolean()
             freeCompilerArgs += listOf(
+                "-Xexpect-actual-classes",
                 "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-opt-in=kotlinx.coroutines.FlowPreview",
             )
