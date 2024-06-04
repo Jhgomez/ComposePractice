@@ -46,17 +46,19 @@ fun Home(modifier: Modifier = Modifier) {
 
             Text(greetingText)
 
-            Presentation(
-                painter = painterResource(SharedRes.images.android_logo),
-                fullName = stringResource(SharedRes.strings.full_name),
-                title = stringResource(SharedRes.strings.title)
-            )
+//            Presentation(
+//                painter = painterResource(SharedRes.images.android_logo),
+//                fullName = stringResource(SharedRes.strings.full_name),
+//                title = stringResource(SharedRes.strings.title)
+//            )
+//
+//            ContactInfo(
+//                phone = stringResource(SharedRes.strings.phone),
+//                socialProfile = stringResource(SharedRes.strings.social_profile),
+//                email = stringResource(SharedRes.strings.email)
+//            )
 
-            ContactInfo(
-                phone = stringResource(SharedRes.strings.phone),
-                socialProfile = stringResource(SharedRes.strings.social_profile),
-                email = stringResource(SharedRes.strings.email)
-            )
+            ArtSpace(Modifier.fillMaxSize())
         }
     }
 }
