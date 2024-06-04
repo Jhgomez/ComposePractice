@@ -3,6 +3,7 @@ package okik.tech.community.admin.shared
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -79,6 +80,7 @@ fun ColumnScope.PictureFooter(
     Surface(
         color = Color.LightGray,
         modifier = Modifier
+            .weight(.25f, true)
             .padding(24.dp)
             .fillMaxWidth()
             .padding(8.dp),
@@ -108,6 +110,10 @@ fun ColumnScope.PictureFooter(
                 text = annotatedString,
                 modifier = Modifier.fillMaxWidth()
             )
+        }
+
+        Row(modifier = Modifier.fillMaxSize()) {
+
         }
     }
 }
