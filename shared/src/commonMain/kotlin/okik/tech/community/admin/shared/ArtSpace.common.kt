@@ -98,7 +98,8 @@ fun ColumnScope.PictureFooter(
             .padding(8.dp),
     ) {
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .padding(horizontal = 8.dp, vertical = 24.dp)
         ) {
             Text(
                 text = title,
