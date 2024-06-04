@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -34,6 +35,11 @@ import okik.tech.community.admin.shared.resources.SharedRes
 @Composable
 fun Home(modifier: Modifier = Modifier) {
 
+
+}
+
+@Composable
+fun CardApp(modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier,
         color = Color.Green
@@ -46,19 +52,17 @@ fun Home(modifier: Modifier = Modifier) {
 
             Text(greetingText)
 
-//            Presentation(
-//                painter = painterResource(SharedRes.images.android_logo),
-//                fullName = stringResource(SharedRes.strings.full_name),
-//                title = stringResource(SharedRes.strings.title)
-//            )
-//
-//            ContactInfo(
-//                phone = stringResource(SharedRes.strings.phone),
-//                socialProfile = stringResource(SharedRes.strings.social_profile),
-//                email = stringResource(SharedRes.strings.email)
-//            )
+            Presentation(
+                painter = painterResource(SharedRes.images.android_logo),
+                fullName = stringResource(SharedRes.strings.full_name),
+                title = stringResource(SharedRes.strings.title)
+            )
 
-            ArtSpace(Modifier.fillMaxSize())
+            ContactInfo(
+                phone = stringResource(SharedRes.strings.phone),
+                socialProfile = stringResource(SharedRes.strings.social_profile),
+                email = stringResource(SharedRes.strings.email)
+            )
         }
     }
 }
