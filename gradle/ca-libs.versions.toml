@@ -7,7 +7,7 @@ composeCompiler = "1.5.4"
 
 #Plugin versions
 androidGradlePlugin = "8.2.2"
-composePlugin = "1.6.2"
+composePlugin = "1.6.10"
 kotlin = "1.9.22"
 resourceGenerator = "0.23.0"
 
