@@ -40,7 +40,9 @@ import okik.tech.community.admin.shared.resources.SharedRes
 
 @Composable
 fun ArtSpace(modifier: Modifier) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+    ) {
         ImageCard(
             image = SharedRes.images.android_logo,
             modifier = Modifier
@@ -121,31 +123,31 @@ fun ColumnScope.PictureFooter(
                 modifier = Modifier.fillMaxWidth()
             )
         }
+    }
 
-        Row(
-            modifier = Modifier
-                .weight(.15f, true)
-                .fillMaxWidth()
+    Row(
+        modifier = Modifier
+            .weight(.15f, true)
+            .fillMaxWidth()
+    ) {
+        Button(
+            onClick = onPrevious,
+            modifier = Modifier.weight(1f)
         ) {
-            Button(
-                onClick = onPrevious,
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = "Previous"
-                )
-            }
+            Text(
+                text = "Previous"
+            )
+        }
 
-            Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(16.dp))
 
-            Button(
-                onClick = onNext,
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = "Next"
-                )
-            }
+        Button(
+            onClick = onNext,
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                text = "Next"
+            )
         }
     }
 }
