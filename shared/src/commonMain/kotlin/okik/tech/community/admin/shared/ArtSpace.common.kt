@@ -104,7 +104,7 @@ fun ColumnScope.PictureFooter(
             )
 
             val annotatedString = buildAnnotatedString {
-                this.withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                     append(artist)
                 }
 
