@@ -95,7 +95,6 @@ fun ColumnScope.PictureFooter(
             .weight(.25f, true)
             .padding(24.dp)
             .fillMaxWidth()
-            .padding(8.dp),
     ) {
         Column(
             modifier = Modifier
