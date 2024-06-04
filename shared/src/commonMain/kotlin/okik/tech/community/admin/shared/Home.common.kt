@@ -34,8 +34,7 @@ import okik.tech.community.admin.shared.resources.SharedRes
 
 @Composable
 fun Home(modifier: Modifier = Modifier) {
-
-
+    ArtSpace(modifier)
 }
 
 @Composable
