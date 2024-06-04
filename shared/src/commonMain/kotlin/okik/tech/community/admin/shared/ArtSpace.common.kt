@@ -69,7 +69,7 @@ fun ColumnScope.ImageCard(
         ),
         shape = RoundedCornerShape(cornerRadius),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        modifier =  Modifier.weight(weight = 0.55f, fill = true).fillMaxWidth()
+        modifier =  Modifier.height(360.dp).fillMaxWidth()
     ) {
         Image(
             painter = painterResource(image),
@@ -138,7 +138,6 @@ fun ColumnScope.PictureFooter(
 
     Row(
         modifier = Modifier
-            .weight(.15f, true)
             .fillMaxWidth()
     ) {
         Button(
