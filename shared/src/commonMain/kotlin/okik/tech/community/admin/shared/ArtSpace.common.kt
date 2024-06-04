@@ -60,17 +60,17 @@ fun ArtSpace(modifier: Modifier) {
 }
 
 @Composable
-fun ImageCard(
+fun ColumnScope.ImageCard(
     image: ImageResource,
     cornerRadius: Dp = 0.dp,
-    modifier: Modifier
 ) {
     Card(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 16.dp
         ),
         shape = RoundedCornerShape(cornerRadius),
-        modifier = modifier
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        modifier =  Modifier.weight(weight = 0.55f, fill = true).fillMaxWidth()
     ) {
         Image(
             painter = painterResource(image),
