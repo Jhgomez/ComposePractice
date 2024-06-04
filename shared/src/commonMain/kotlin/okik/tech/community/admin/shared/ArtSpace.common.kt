@@ -56,6 +56,8 @@ fun ColumnScope.ImageCard(
     image: ImageResource,
     cornerRadius: Dp = 0.dp,
 ) {
+    Spacer(Modifier.height(56.dp))
+
     Card(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 16.dp
