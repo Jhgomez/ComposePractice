@@ -89,8 +89,11 @@ fun ColumnScope.PictureFooter(
     onPrevious: () -> Unit,
     onNext: () -> Unit
 ) {
+    Spacer(modifier = Modifier.height(48.dp))
+
     Surface(
         color = Color.LightGray,
+        shadowElevation = ,
         modifier = Modifier
             .padding(24.dp)
             .fillMaxWidth()
