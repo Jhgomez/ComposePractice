@@ -93,7 +93,6 @@ fun ColumnScope.PictureFooter(
 
     Surface(
         color = Color.LightGray,
-        shadowElevation = ,
         modifier = Modifier
             .padding(24.dp)
             .fillMaxWidth()
