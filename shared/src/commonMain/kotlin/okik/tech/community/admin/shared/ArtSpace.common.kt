@@ -57,7 +57,7 @@ fun ArtSpace(modifier: Modifier) {
 }
 
 @Composable
-fun ColumnScope.ImageCard(
+fun ImageCard(
     image: ImageResource,
     cornerRadius: Dp = 0.dp,
 ) {
@@ -82,7 +82,7 @@ fun ColumnScope.ImageCard(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ColumnScope.PictureFooter(
+fun PictureFooter(
     title: String,
     artist: String,
     year: String,
