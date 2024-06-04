@@ -99,7 +99,7 @@ fun ColumnScope.PictureFooter(
     ) {
         Column(
             modifier = Modifier
-                .padding(horizontal = 8.dp, vertical = 24.dp)
+                .padding(horizontal = 16.dp, vertical = 24.dp)
         ) {
             TooltipBox(
                 positionProvider = TooltipDefaults.rememberRichTooltipPositionProvider(),
