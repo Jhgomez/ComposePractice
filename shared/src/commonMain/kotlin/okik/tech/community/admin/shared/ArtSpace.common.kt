@@ -76,7 +76,7 @@ fun ImageCard(
             painter = painterResource(image),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.padding(32.dp).fillMaxSize()
         )
     }
 }
