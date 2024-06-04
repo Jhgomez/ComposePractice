@@ -102,7 +102,7 @@ fun ColumnScope.PictureFooter(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.displayLarge,
+                style = MaterialTheme.typography.titleLarge,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.fillMaxWidth()
@@ -113,7 +113,7 @@ fun ColumnScope.PictureFooter(
                     append(artist)
                 }
 
-                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                withStyle(style = SpanStyle()) {
                     append("($year)")
                 }
             }
