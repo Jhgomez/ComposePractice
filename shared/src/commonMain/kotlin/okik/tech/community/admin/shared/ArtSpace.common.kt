@@ -7,6 +7,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.RectangleShape
@@ -42,6 +44,5 @@ fun ImageCard(
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
         )
-
     }
 }
