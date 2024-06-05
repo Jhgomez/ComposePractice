@@ -139,7 +139,8 @@ fun PictureFooter(
 
     Row(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Button(
             onClick = onPrevious,
