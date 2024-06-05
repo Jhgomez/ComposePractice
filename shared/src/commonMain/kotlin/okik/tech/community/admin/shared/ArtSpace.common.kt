@@ -143,7 +143,7 @@ fun PictureFooter(
     ) {
         Button(
             onClick = onPrevious,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.width(160.dp)
         ) {
             Text(
                 text = "Previous"
@@ -152,7 +152,7 @@ fun PictureFooter(
 
         Button(
             onClick = onNext,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.width(160.dp)
         ) {
             Text(
                 text = "Next"
