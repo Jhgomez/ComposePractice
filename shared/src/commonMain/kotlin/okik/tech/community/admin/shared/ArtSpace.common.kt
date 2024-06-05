@@ -1,6 +1,7 @@
 package okik.tech.community.admin.shared
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -148,8 +149,6 @@ fun PictureFooter(
                 text = "Previous"
             )
         }
-
-        Spacer(modifier = Modifier.width(16.dp))
 
         Button(
             onClick = onNext,
